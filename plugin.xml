@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="cordova-plugin-k-imagecropper"
+    version="1.0.0">
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <name>KImageCropper</name>
+    <description>Plugin for cropping images with aspect ratio</description>
+    <author>Krishnendu Sekhar Das</author>
+    <keywords>Image Cropping</keywords>
+    <license>MIT</license>
+
+    <js-module src="www/imagecropper.js" name="imagecropper">
+        <clobbers target="window.plugins.k.imagecropper" />
+    </js-module>
+
+    <!-- Android -->
+    <platform name="android">
+        <framework src="com.theartofdev.edmodo:android-image-cropper:2.3.+" />
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="KImageCropper">
+                <param name="android-package" value="in.co.indusnet.plugins.cordova.imagecropper.KImageCropper" />
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" android:theme="@style/Base.Theme.AppCompat"/>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+		</config-file>
+
+        <source-file src="src/android/KImageCropper.java" target-dir="src/in/co/indusnet/plugins/cordova/imagecropper"/>
+    </platform>
+
+</plugin>

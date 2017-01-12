@@ -1,0 +1,26 @@
+{
+  "name": "imagecropper",
+  "version": "1.0.0",
+  "description": "Cordova plugin for Image Cropping",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krish-dev/cordova-plugin-k-imagecropper.git"
+  },
+  "keywords": [
+    "Cordova",
+    "Plugin",
+    "Cropping",
+    "aspect",
+    "ratio"
+  ],
+  "author": "Krishnendu Sekhar Das",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/krish-dev/cordova-plugin-k-imagecropper/issues"
+  },
+  "homepage": "https://github.com/krish-dev/cordova-plugin-k-imagecropper#readme"
+}
