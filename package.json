@@ -1,7 +1,7 @@
 {
-  "name": "imagecropper",
+  "name": "cordova-plugin-k-imagecropper",
   "version": "1.0.0",
-  "description": "Cordova plugin for Image Cropping",
+  "description": "Cordova plugin for Image Cropping with custom aspect ratio",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
