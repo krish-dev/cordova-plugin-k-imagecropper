@@ -2,8 +2,9 @@ package in.co.indusnet.plugins.cordova.imagecropper;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.util.Log;
+import java.io.File;
 
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
@@ -13,7 +14,6 @@ import org.apache.cordova.CallbackContext;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 
 
 public class KImageCropper extends CordovaPlugin {
@@ -75,17 +75,39 @@ public class KImageCropper extends CordovaPlugin {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-
+        JSONObject succesJson = new JSONObject();
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode == Activity.RESULT_OK) {
                 Uri resultUri = result.getUri();
-                cordovaCallbackContext.success(resultUri.toString());
-                Log.d("Result URI", resultUri.toString());
-
+                try {
+                    succesJson = imageRatioCalculation(resultUri);
+                    succesJson.put("imgPath",resultUri.toString());
+                    cordovaCallbackContext.success(succesJson);
+                }catch (JSONException e) {
+                    cordovaCallbackContext.error(e.getMessage());
+                }
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 Exception error = result.getError();
+                cordovaCallbackContext.error(error.getMessage());
             }
         }
+    }
+
+    private JSONObject imageRatioCalculation(Uri uri) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(new File(uri.getPath()).getAbsolutePath(), options);
+        int imageHeight = options.outHeight;
+        int imageWidth = options.outWidth;
+
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("width", imageWidth);
+            jsonObject.put("height", imageHeight);
+        }catch (JSONException e) {
+
+        }
+        return jsonObject;
     }
 }

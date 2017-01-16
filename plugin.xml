@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     id="cordova-plugin-k-imagecropper"
-    version="1.0.0">
+    version="1.1.0">
 
     <engines>
         <engine name="cordova" version=">=3.0.0" />
@@ -36,6 +36,33 @@
 		</config-file>
 
         <source-file src="src/android/KImageCropper.java" target-dir="src/in/co/indusnet/plugins/cordova/imagecropper"/>
+    </platform>
+
+    <!-- iOS -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="KImageCropper">
+                <param name="ios-package" value="KImageCropper" />
+            </feature>
+        </config-file>
+
+        <framework src="QuartzCore.framework" />
+        <framework src="AVFoundation.framework" />
+
+        <header-file src="src/ios/lib/PEPhotoCrop/PECropRectView.h" />
+        <source-file src="src/ios/lib/PEPhotoCrop/PECropRectView.m" />
+        <header-file src="src/ios/lib/PEPhotoCrop/PECropView.h" />
+        <source-file src="src/ios/lib/PEPhotoCrop/PECropView.m" />
+        <header-file src="src/ios/lib/PEPhotoCrop/PECropViewController.h" />
+        <source-file src="src/ios/lib/PEPhotoCrop/PECropViewController.m" />
+        <header-file src="src/ios/lib/PEPhotoCrop/PEResizeControl.h" />
+        <source-file src="src/ios/lib/PEPhotoCrop/PEResizeControl.m" />
+        <header-file src="src/ios/lib/PEPhotoCrop/UIImage+PECrop.h" />
+        <source-file src="src/ios/lib/PEPhotoCrop/UIImage+PECrop.m" />
+        <resource-file src="src/ios/lib/PEPhotoCrop/PEPhotoCropEditor.bundle" />
+
+        <header-file src="src/ios/KImageCropper.h" />
+        <source-file src="src/ios/KImageCropper.m" />
     </platform>
 
 </plugin>

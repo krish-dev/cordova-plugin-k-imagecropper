@@ -4,7 +4,7 @@ Cordova plugin for image cropping with custom aspect ratio.
 Platform Support
 ----------------
 * android
-* iOS (in dev)
+* iOS
 
 ## Usage
 
@@ -24,11 +24,11 @@ Example:
     var options = {
         url: imageUrl,              // required.
         ratio: "6/4",               // optional. (here you can define your custom ration) default: 1:1
-        title: "Custom tilte"       // optional. (here you can put title of image cropper activity) default: Image Cropper
-        autoZoomEnabled: false      // optional. (if it is true then cropper will automatically adjust the view) default: true
+        title: "Custom tilte"       // optional. android only. (here you can put title of image cropper activity) default: Image Cropper
+        autoZoomEnabled: false      // optional. android only. for iOS its always true (if it is true then cropper will automatically adjust the view) default: true
     }
     window.plugins.k.imagecropper.open(options, function(data) {
-        // its return the cropped image cached url, you need to manually delete the image from the application cache.
+        // its return an object with the cropped image cached url, cropped width & height, you need to manually delete the image from the application cache.
         console.log(data);          
         $scope.croppedImage = data;
     }, function(error) {
