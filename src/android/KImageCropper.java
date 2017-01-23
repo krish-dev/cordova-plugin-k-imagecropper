@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.util.Log;
+
 import java.io.File;
 
 import com.theartofdev.edmodo.cropper.CropImage;
@@ -40,6 +42,16 @@ public class KImageCropper extends CordovaPlugin {
 
             return true;
         }
+        if (action.equals("getImageDimension")) {
+            cordova.getActivity().runOnUiThread(new Runnable() {
+                public void run() {
+                    cordovaCallbackContext = callbackContext;
+                    parseImagePaths(args);
+                }
+            });
+
+            return true;
+        }
 
         return false;
     }
@@ -59,6 +71,31 @@ public class KImageCropper extends CordovaPlugin {
         }catch (JSONException e){
             cordovaCallbackContext.error(e.getMessage());
         }
+    }
+
+    private  void parseImagePaths(JSONArray jsonArray) {
+        JSONArray imagePathsArr;
+
+        JSONArray successArr = new JSONArray();
+
+        try {
+            imagePathsArr = jsonArray.getJSONArray(0);
+
+            for(Integer i=0;i<imagePathsArr.length();i++) {
+                JSONObject img = new JSONObject();
+                String imgPath = imagePathsArr.getString(i);
+
+                img = imageRatioCalculation(Uri.parse(imgPath));
+                img.put("imgPath", imgPath);
+                successArr.put(img);
+            }
+
+            cordovaCallbackContext.success(successArr);
+
+        }catch (JSONException e){
+            cordovaCallbackContext.error(e.getMessage());
+        }
+
     }
 
     private void openCropper() {

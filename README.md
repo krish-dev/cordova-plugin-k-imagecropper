@@ -16,9 +16,14 @@ Type following command from CLI to add this plugin
     cordova plugin add cordova-plugin-k-imagecropper
 ```
 
-The plugin creates the object `window.plugins.k.imagecropper` with the methods `open(options, onSuccess, onError)`.
+The plugin creates the object `window.plugins.k.imagecropper`.
 
-Example:
+Methods
+------------------------
+* open
+* getImageDimension (android only / iOS in development)
+
+Example: open
 -------------------------------------------------------
 ```
     var options = {
@@ -29,6 +34,25 @@ Example:
     }
     window.plugins.k.imagecropper.open(options, function(data) {
         // its return an object with the cropped image cached url, cropped width & height, you need to manually delete the image from the application cache.
+        console.log(data);          
+        $scope.croppedImage = data;
+    }, function(error) {
+        console.log(error);
+    })
+```
+
+Example: getImageDimension
+-------------------------------------------------------
+```
+    var imagesArr = [
+        "file:///data/user/0/com.ionicframework.creativesdk/cache/tmp_IMG_20170123_0857001689046463.jpg",
+        "file:///data/user/0/com.ionicframework.creativesdk/cache/tmp_IMG_20170123_0855131930060303.jpg",
+        "file:///data/user/0/com.ionicframework.creativesdk/cache/tmp_IMG-20170123-WA0004-768394128.jpg",
+        "file:///data/user/0/com.ionicframework.creativesdk/cache/tmp_IMG_20170123_0856091088191830.jpg",
+        "file:///data/user/0/com.ionicframework.creativesdk/cache/tmp_IMG_20170123_085513-1271654176.jpg"
+    ];
+    window.plugins.k.imagecropper.getImageDimension(imagesArr, function(data) {
+        // its return an array of object with the image url, width & height
         console.log(data);          
         $scope.croppedImage = data;
     }, function(error) {

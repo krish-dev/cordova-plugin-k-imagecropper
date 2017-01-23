@@ -60,6 +60,34 @@ KImageCropper.prototype.open = function (options, successCallback, errorCallback
     );
 };
 
+KImageCropper.prototype.getImageDimension = function (imageArr, successCallback, errorCallback) {
+    if(!Array.isArray(imageArr)) {
+        var error = {
+            code : 201,
+            message : "you should pass an array of image paths"
+        }
+        errorCallback(error);
+        return false;
+    }else {
+        if(imageArr.length < 1) {
+            var error = {
+                code : 202,
+                message : "Image array should not be less than one"
+            }
+            errorCallback(error);
+            return false;
+        }
+    }
+
+    cordova.exec(
+        successCallback,
+        errorCallback,
+        "KImageCropper",
+        "getImageDimension",
+        [imageArr]
+    );
+};
+
 KImageCropper.install = function () {
     if (!window.plugins.k) {
         window.plugins.k = {};
