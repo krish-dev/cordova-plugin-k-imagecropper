@@ -21,7 +21,7 @@ The plugin creates the object `window.plugins.k.imagecropper`.
 Methods
 ------------------------
 * open
-* getImageDimension (android only / iOS in development)
+* getImageDimension
 
 Example: open
 -------------------------------------------------------

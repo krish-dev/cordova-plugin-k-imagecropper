@@ -10,4 +10,5 @@
 @interface KImageCropper : CDVPlugin <PECropViewControllerDelegate> {}
 
 - (void) open:(CDVInvokedUrlCommand*)command;
+- (void) getImageDimension:(CDVInvokedUrlCommand*)command;
 @end

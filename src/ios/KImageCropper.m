@@ -53,6 +53,40 @@
     [self.viewController presentViewController:navigationController animated:YES completion:NULL];
 }
 
+- (void)getImageDimension:(CDVInvokedUrlCommand *)command {
+    CDVPluginResult *result;
+    NSMutableArray *imageArr = [command.arguments objectAtIndex:0];
+
+    NSMutableArray *finalImages = [[NSMutableArray alloc] init];
+    [finalImages removeAllObjects];
+
+    for (int i = 0; i < [imageArr count]; i++) {
+        UIImage *image;
+        NSString *imagePath = [imageArr objectAtIndex:i];
+
+        NSString *filePrefix = @"file://";
+
+        if ([imagePath hasPrefix:filePrefix]) {
+            imagePath = [imagePath substringFromIndex:[filePrefix length]];
+        }
+
+
+        if (!(image = [UIImage imageWithContentsOfFile:imagePath])) {
+            NSObject *err = @{ @"error": @"Image doesn't exist" };
+            [finalImages addObject:err];
+        }else {
+            NSMutableDictionary *imgObj = [[NSMutableDictionary alloc] init];
+            [imgObj setValue:[NSNumber numberWithInt:image.size.width] forKey:@"width"];
+            [imgObj setValue:[NSNumber numberWithInt:image.size.height] forKey:@"height"];
+            [imgObj setValue:[NSString stringWithString:imagePath] forKey:@"imagePath"];
+            [finalImages addObject:imgObj];
+        }
+    }
+
+    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsArray:finalImages];
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+}
+
 #pragma mark - PECropViewControllerDelegate
 
 - (void)cropViewController:(PECropViewController *)controller didFinishCroppingImage:(UIImage *)croppedImage {
