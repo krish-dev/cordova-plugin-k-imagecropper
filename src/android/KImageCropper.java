@@ -91,10 +91,11 @@ public class KImageCropper extends CordovaPlugin {
 
                 // checking media path or absolute path.
                 String ext = imgPath.substring(imgPath.lastIndexOf(".") + 1);
-                if(!ext.equals("jpg") || !ext.equals("jpeg") || !ext.equals("JPG") || !ext.equals("JPEG") || !ext.equals("png") || !ext.equals("PNG")) {
-                    finalImgPath = getRealPathFromURI(cordova.getActivity().getApplicationContext(),Uri.parse(imgPath));
-                }else {
+
+                if(ext.equals("jpg") || ext.equals("jpeg") || ext.equals("JPG") || ext.equals("JPEG") || ext.equals("png") || ext.equals("PNG")) {
                     finalImgPath =  imgPath;
+                }else {
+                    finalImgPath = getRealPathFromURI(cordova.getActivity().getApplicationContext(),Uri.parse(imgPath));
                 }
                 img = imageRatioCalculation(Uri.parse(finalImgPath));
                 img.put("imgPath", imgPath);
