@@ -78,7 +78,7 @@
             NSMutableDictionary *imgObj = [[NSMutableDictionary alloc] init];
             [imgObj setValue:[NSNumber numberWithInt:image.size.width] forKey:@"width"];
             [imgObj setValue:[NSNumber numberWithInt:image.size.height] forKey:@"height"];
-            [imgObj setValue:[NSString stringWithString:imagePath] forKey:@"imagePath"];
+            [imgObj setValue:[NSString stringWithString:imagePath] forKey:@"imgPath"];
             [finalImages addObject:imgObj];
         }
     }
