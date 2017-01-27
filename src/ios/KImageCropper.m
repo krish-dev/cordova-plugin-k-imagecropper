@@ -107,7 +107,7 @@
         NSMutableDictionary *success = [[NSMutableDictionary alloc] init];
         [success setValue:[NSNumber numberWithInt:croppedImage.size.width] forKey:@"width"];
         [success setValue:[NSNumber numberWithInt:croppedImage.size.height] forKey:@"height"];
-        [success setValue:[NSString stringWithString:[[NSURL fileURLWithPath:filePath] absoluteString]] forKey:@"imagePath"];
+        [success setValue:[NSString stringWithString:[[NSURL fileURLWithPath:filePath] absoluteString]] forKey:@"imgPath"];
 
         result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:success];
     }
