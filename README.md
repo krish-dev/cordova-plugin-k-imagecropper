@@ -1,3 +1,6 @@
+# Forked Note:
+Original library was great in every manner. In iOS, there was a small bug that cropping new image returned old image path which showed incorrect image. To make file name unique and avoid name mismatch, adding intervalString as an extra layer in the file name for iOS and it solved problem (at least for me). Feel free to use forked version this if you're facing the same bug in the original library.
+
 # Cordova Image Cropper
 Cordova plugin for image cropping with custom aspect ratio.
 
