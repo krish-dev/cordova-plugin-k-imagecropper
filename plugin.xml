@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     id="cordova-plugin-k-imagecropper"
-    version="1.1.7">
+    version="1.2.0">
 
     <engines>
         <engine name="cordova" version=">=3.0.0" />
@@ -19,7 +19,11 @@
 
     <!-- Android -->
     <platform name="android">
-        <framework src="com.theartofdev.edmodo:android-image-cropper:2.3.+" />
+        <preference name="ANDROID_SUPPORT_APPCOMPAT_VERSION" default="27.+"/>
+
+        <framework src="com.theartofdev.edmodo:android-image-cropper:2.7.+" />
+        <framework src="com.android.support:appcompat-v7:$ANDROID_SUPPORT_APPCOMPAT_VERSION"/>
+
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="KImageCropper">
                 <param name="android-package" value="in.co.indusnet.plugins.cordova.imagecropper.KImageCropper" />
