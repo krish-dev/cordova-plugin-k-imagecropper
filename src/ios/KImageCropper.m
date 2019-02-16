@@ -138,7 +138,10 @@
     // generate unique file name
     int i = 1;
     do {
-        filePath = [NSString stringWithFormat:@"%@/%@%03d.%@", docsPath, CDV_PHOTO_PREFIX, i++, extension];
+        // To make file name unique and avoid name mismatch, adding intervalString as an extra layer in the file name.
+        NSTimeInterval  today = [[NSDate date] timeIntervalSince1970];
+        NSString *intervalString = [NSString stringWithFormat:@"%f", today];
+        filePath = [NSString stringWithFormat:@"%@/%@%03d_%@.%@", docsPath, CDV_PHOTO_PREFIX, i++, intervalString , extension];
     } while ([fileMgr fileExistsAtPath:filePath]);
 
     return filePath;
