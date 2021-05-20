@@ -30,9 +30,9 @@ Example: open
         url: imageUrl,                  // required.
         ratio: "6/4",                   // required. (here you can define your custom ration) "1/1" for square images
         title: "Custom title",          // optional. android only. (here you can put title of image cropper activity) default: Image Cropper
-        autoZoomEnabled: false,         // optional. android only. for iOS its always true (if it is true then cropper will automatically adjust the view) default: true
-        rotationEnabled: false,         // optional. allow to user rotate the image in view. default: false
-        guideslineEnabled: true,        // optional. android only. show the guidesline in view. default: true
+        autoZoomEnabled: false,         // optional. android only. for iOS its always true (if it is true then cropper will automatically adjust the view) default: true (NOT TESTED ON IOS)
+        rotationEnabled: false,         // optional. allow to user rotate the image in view. default: false (NOT TESTED ON IOS)
+        guideslineEnabled: true,        // optional. android only. show the guidesline in view. default: true (NOT TESTED ON IOS)
     }
     window.plugins.k.imagecropper.open(options, function(data) {
         // its return an object with the cropped image cached url, cropped width & height, you need to manually delete the image from the application cache.
