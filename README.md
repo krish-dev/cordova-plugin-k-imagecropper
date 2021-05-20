@@ -27,10 +27,14 @@ Example: open
 -------------------------------------------------------
 ```js
     var options = {
-        url: imageUrl,              // required.
-        ratio: "6/4",               // required. (here you can define your custom ration) "1/1" for square images
-        title: "Custom title",      // optional. android only. (here you can put title of image cropper activity) default: Image Cropper
-        autoZoomEnabled: false      // optional. android only. for iOS its always true (if it is true then cropper will automatically adjust the view) default: true
+        url: imageUrl,                  // required.
+        ratio: "6/4",                   // required. (here you can define your custom ration) "1/1" for square images
+        title: "Custom title",          // optional. android only. (here you can put title of image cropper activity) default: Image Cropper
+        autoZoomEnabled: false,         // optional. android only. for iOS its always true (if it is true then cropper will automatically adjust the view) default: true
+        rotationEnabled: false,         // optional. allow to user rotate the image in view. default: false
+        guideslineEnabled: true,        // optional. android only. show the guidesline in view. default: true
+        backgroundColor: "#77000000",   // optional. android only. change  the background color in outside area. default: "#77000000"
+        ovalShape: false                // optional. android only. if true the  shape of area cut will be oval
     }
     window.plugins.k.imagecropper.open(options, function(data) {
         // its return an object with the cropped image cached url, cropped width & height, you need to manually delete the image from the application cache.
