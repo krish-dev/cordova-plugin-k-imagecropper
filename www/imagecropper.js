@@ -62,10 +62,6 @@ KImageCropper.prototype.open = function (options, successCallback, errorCallback
         finalOption.ovalShape = options.ovalShape;
     }
 
-
-
-
-
     if(options.title) {
         finalOption.title = options.title;
     }

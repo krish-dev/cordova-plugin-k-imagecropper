@@ -19,7 +19,7 @@
     CGFloat ratioY = [[options objectForKey:@"ratioY"] floatValue];
     BOOL rotationEnabled = [[options objectForKey:@"rotationEnabled"]];
     BOOL guidelinesEnabled= [[options objectForKey:@"guidelinesEnabled"]];
-    BOOL isOval= [[options objectForKey:@"ovalShape"]];
+    BOOL isOval = [[options objectForKey:@"ovalShape"]];
 
     NSString *filePrefix = @"file://";
 

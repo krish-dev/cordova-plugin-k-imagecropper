@@ -72,7 +72,7 @@ public class KImageCropper extends CordovaPlugin {
             IS_ZOOMABLE = options.getBoolean("autoZoomEnabled");
             ACTIVITY_TITLE = options.getString("title");
             IS_ROTATABLE = options.getBoolean("rotationEnabled");
-            GUIDELINES = options.getBoolean("rotationEnabled");
+            GUIDELINES = options.getBoolean("guideslineEnabled");
             IS_OVAL = options.getBoolean("ovalShape");
             openCropper();
 
