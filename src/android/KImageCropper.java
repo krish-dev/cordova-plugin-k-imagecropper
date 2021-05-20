@@ -29,8 +29,8 @@ public class KImageCropper extends CordovaPlugin {
     Boolean IS_ZOOMABLE;
     String ACTIVITY_TITLE;
     Boolean IS_ROTATABLE;
-    Integer IS_OVAL;
-    Integer GUIDELINES;
+    Boolean IS_OVAL;
+    Boolean GUIDELINES;
 
     CallbackContext cordovaCallbackContext;
 
