@@ -16,8 +16,7 @@ KImageCropper.prototype.open = function (options, successCallback, errorCallback
         autoZoomEnabled : true,
         title : "Image Cropper",
         rotationEnabled: false,
-        guideslineEnabled: true,
-        ovalShape: false
+        guideslineEnabled: true
     };
 
     if(!options.url) {
@@ -56,10 +55,6 @@ KImageCropper.prototype.open = function (options, successCallback, errorCallback
 
     if(options.guideslineEnabled) {
         finalOption.guideslineEnabled = options.guideslineEnabled;
-    }
-
-    if(options.ovalShape) {
-        finalOption.ovalShape = options.ovalShape;
     }
 
     if(options.title) {
