@@ -17,9 +17,7 @@
     NSString *imagePath = [options objectForKey:@"url"];
     CGFloat ratioX = [[options objectForKey:@"ratioX"] floatValue];
     CGFloat ratioY = [[options objectForKey:@"ratioY"] floatValue];
-    BOOL rotationEnabled = [[options objectForKey:@"rotationEnabled"]];
-    BOOL guidelinesEnabled= [[options objectForKey:@"guidelinesEnabled"]];
-    BOOL isOval = [[options objectForKey:@"ovalShape"]];
+
 
     NSString *filePrefix = @"file://";
 
@@ -42,13 +40,6 @@
     cropController.delegate = self;
     cropController.image = image;
     cropController.toolbarHidden = YES;
-    if(!guidelinesEnabled){
-        cropController.cropGuidelines = NO;
-    }
-    if(isOval){
-        cropController.cropShape = "oval";
-    }
-    cropController.rotationEnabled = rotationEnabled;
     cropController.cropAspectRatio = ratioX / ratioY;
     cropController.keepingCropAspectRatio = YES;
 
