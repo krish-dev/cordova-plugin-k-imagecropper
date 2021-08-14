@@ -28,6 +28,9 @@ public class KImageCropper extends CordovaPlugin {
     Integer ASPECT_RATIO_Y;
     Boolean IS_ZOOMABLE;
     String ACTIVITY_TITLE;
+    Boolean IS_ROTATABLE;
+    Boolean IS_OVAL;
+    Boolean GUIDELINES;
 
     CallbackContext cordovaCallbackContext;
 
@@ -68,7 +71,8 @@ public class KImageCropper extends CordovaPlugin {
             ASPECT_RATIO_Y = options.getInt("ratioY");
             IS_ZOOMABLE = options.getBoolean("autoZoomEnabled");
             ACTIVITY_TITLE = options.getString("title");
-
+            IS_ROTATABLE = options.getBoolean("rotationEnabled");
+            GUIDELINES = options.getBoolean("guideslineEnabled");
             openCropper();
 
         }catch (JSONException e){
@@ -133,8 +137,8 @@ public class KImageCropper extends CordovaPlugin {
                 .setAspectRatio(ASPECT_RATIO_X,ASPECT_RATIO_Y)
                 .setAutoZoomEnabled(IS_ZOOMABLE)
                 .setActivityTitle(ACTIVITY_TITLE)
-                .setGuidelines(CropImageView.Guidelines.ON)
-                .setAllowRotation(false)
+                .setGuidelines(GUIDELINES ? CropImageView.Guidelines.ON : CropImageView.Guidelines.OFF)
+                .setAllowRotation(IS_ROTATABLE ? true : false)
                 .start(cordova.getActivity());
     }
 

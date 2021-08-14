@@ -14,7 +14,9 @@ KImageCropper.prototype.open = function (options, successCallback, errorCallback
         ratioX : 1,
         ratioY : 1,
         autoZoomEnabled : true,
-        title : "Image Cropper"
+        title : "Image Cropper",
+        rotationEnabled: false,
+        guideslineEnabled: true
     };
 
     if(!options.url) {
@@ -45,6 +47,14 @@ KImageCropper.prototype.open = function (options, successCallback, errorCallback
 
     if(options.autoZoomEnabled) {
         finalOption.autoZoomEnabled = options.autoZoomEnabled;
+    }
+
+    if(options.rotationEnabled) {
+        finalOption.rotationEnabled = options.rotationEnabled;
+    }
+
+    if(options.guideslineEnabled) {
+        finalOption.guideslineEnabled = options.guideslineEnabled;
     }
 
     if(options.title) {
