@@ -21,7 +21,7 @@
     <platform name="android">
         <preference name="ANDROID_SUPPORT_APPCOMPAT_VERSION" default="27.+"/>
 
-        <framework src="com.theartofdev.edmodo:android-image-cropper:2.7.+" />
+        <framework src="com.github.CanHub:Android-Image-Cropper:1.1.1" />
         <framework src="com.android.support:appcompat-v7:$ANDROID_SUPPORT_APPCOMPAT_VERSION"/>
 
         <config-file target="res/xml/config.xml" parent="/*">
@@ -31,7 +31,7 @@
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" android:exported="false" android:theme="@style/Base.Theme.AppCompat"/>
+            <activity android:name="com.canhub.cropper.CropImageActivity" android:exported="false" android:theme="@style/Base.Theme.AppCompat"/>
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/*">

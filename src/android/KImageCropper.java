@@ -11,8 +11,8 @@ import android.util.Log;
 
 import java.io.File;
 
-import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageView;
+import com.canhub.cropper.CropImage;
+import com.canhub.cropper.CropImageView;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
